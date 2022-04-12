@@ -2,6 +2,9 @@
 import { ReactElement } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { ColorModeScript } from '@chakra-ui/react';
+
+import { theme } from '../constants';
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[];
@@ -23,6 +26,7 @@ export default class CustomDocument extends Document<{
       <Html>
         <Head>{this.props.styleTags}</Head>
         <body>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>
